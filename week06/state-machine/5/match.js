@@ -1,55 +1,55 @@
-function match(string) {
-    let state = start;
-    for(let c of string) {
-        state = state(c);
-    } 
-    return state === end;
-
-    function start(c) {
-        if(c === 'a')
-            return findA;
-        else 
-            return start;
+function match(str) {
+    let state = start
+    for(let i of str) {
+        state = state(i)
     }
-
-    function end(c) {
-        return end;
-    }
-
-    function findA(c) {
-        if(c === 'b')
-            return findB;
-        else 
-            return start(c);
-    }
-
-    function findB(c) {
-        if(c === 'c')
-            return findC;
-        else 
-            return start(c);
-    }
-
-    function findC(c) {
-        if(c === 'a')
-            return find2A;
-        else 
-            return start(c);
-    }
-
-    function find2A(c) {
-        if(c === 'b')
-            return find2B;
-        else 
-            return start(c);
-    }
-
-    function find2B(c) {
-        if(c === 'x')
-            return end;
-        else 
-            return findB(c);
+    return state === end
+}
+function start(i) {
+    if (i === 'a') {
+        return foundA
+    } else {
+        return start
     }
 }
-
-console.log(match("abcabcabx"));
+function end(i) {
+    return end
+}
+function foundA(i) {
+    if (i === 'b') {
+        return foundB
+    } else {
+        return start
+    }
+}
+function foundB(i) {
+    if (i === 'c') {
+        return foundC
+    } else {
+        return start
+    }
+}
+function foundC(i) {
+    if (i === 'a') {
+        return foundA2
+    } else {
+        return start(i)
+    }
+}
+function foundA2(i) {
+    if (i === 'b') {
+        return foundB2
+    } else {
+        return start
+    }
+}
+function foundB2(i) {
+    if (i === 'x') {
+        return end
+    } else if (i === 'c') {
+        return foundC
+    } else {
+        return start
+    }
+}
+console.log(match('abcabcabx'))

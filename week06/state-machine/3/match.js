@@ -1,30 +1,20 @@
-function match(string) {
-    let findA = false;
-    let findB = false;
-    let findC = false;
-    let findD = false;
-    let findE = false;
-
-    for (let c of string) {
-        if (c == 'a')
-            findA = true;
-        else if (findA && c == 'b')
-            findB = true;
-        else if (findB && c == 'c')
-            findC = true;
-        else if (findC && c == 'd')
-            findD = true;
-        else if (findD && c == 'e')
+function match(str) {
+    let foundC = false
+    let foundM = false
+    let foundQ = false
+    for(let i of str) {
+        if (i === 'c') {
+            foundC = true
+        } else if (foundC && i === 'm') {
+            foundM = true
+        } else if (foundM && i === 'q') {
             return true
-        else {
-            findA = false;
-            findB = false;
-            findC = false;
-            findD = false;
-            findE = false;
+        } else {
+            foundC = false
+            foundM = false
+            foundQ = false
         }
     }
-    return false;
+    return false
 }
-
-console.log(match("I abcde grot"));
+console.log(match('I am cmq'))

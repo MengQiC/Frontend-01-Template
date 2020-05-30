@@ -1,9 +1,10 @@
-function match(string) {
-    for(let c of string) {
-        if(c == 'a')
-            return true;
-    } 
-    return false;
+function match(str) {
+    for(let i of str) {
+        console.log(i)
+        if (i === 'a') {
+            return true
+        }
+    }
+    return false
 }
-
-match("I am grot");
+console.log(match('I am cmq'))

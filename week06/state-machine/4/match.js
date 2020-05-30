@@ -1,56 +1,32 @@
-function match(string) {
-    let state = start;
-    for(let c of string) {
-        console.log(c)
-        state = state(c);
-    } 
-    return state === end;
-
-    function start(c) {
-        if(c === 'a')
-            return findA;
-        else 
-            return start;
+function match(str) {
+    let state = start
+    for(let i of str) {
+        state = state(i)
     }
-
-    function end(c) {
-        return end;
-    }
-
-    function findA(c) {
-        if(c === 'b')
-            return findB;
-        else 
-            return start(c);
-    }
-
-    function findB(c) {
-        if(c === 'c')
-            return findC;
-        else 
-            return start(c);
-    }
-
-    function findC(c) {
-        if(c === 'd')
-            return findD;
-        else 
-            return start(c);
-    }
-
-    function findD(c) {
-        if(c === 'e')
-            return findE;
-        else 
-            return start(c);
-    }
-
-    function findE(c) {
-        if(c === 'f')
-            return end;
-        else 
-            return start(c);
+    return state === end
+}
+function start(i) {
+    if (i === 'c') {
+        return foundC
+    } else {
+        return start
     }
 }
-
-console.log(match("aabcdef"));
+function end(i) {
+    return end
+}
+function foundC(i) {
+    if (i === 'm') {
+        return foundM
+    } else {
+        return start(i)
+    }
+}
+function foundM(i) {
+    if (i === 'q') {
+        return end
+    } else {
+        return start(i)
+    }
+}
+console.log(match('I am caocmq'))

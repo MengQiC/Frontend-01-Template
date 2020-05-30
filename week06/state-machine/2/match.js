@@ -1,14 +1,14 @@
-function match(string) {
-    let findA = false;
-    for(let c of string) {
-        if(c == 'a')
-            findA = true;
-        else if(findA && c == 'b')
-            return true;
-        else
-            findA = false;
-    } 
-    return false;
+function match(str) {
+    let foundC = false
+    for(let i of str) {
+        if (i === 'c') {
+            foundC = true
+        } else if (foundC && i === 'm') {
+            return true
+        } else {
+            foundC = false
+        }
+    }
+    return false
 }
-
-console.log(match("I acbm grot"));
+console.log(match('I am cmq'))
